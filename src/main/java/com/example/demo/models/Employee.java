@@ -26,7 +26,7 @@ public class Employee implements UserDetails {
         ADMIN,
         USER,
         STAFF,
-        GUARD
+
 
     }
     @Id
