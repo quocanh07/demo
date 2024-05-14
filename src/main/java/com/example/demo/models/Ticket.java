@@ -1,5 +1,4 @@
 package com.example.demo.models;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -14,23 +13,19 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "booking_office")
+@Table(name = "ticket")
 @Builder
-public class BookingOffice {
+public class Ticket {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
-    private String phone;
-    private String place;
-    private double price;
-    private Date startContractDeadline;
-    private Date endContactDeadline;
-
-
+    private Date bookingTime;
+    private String customerName;
+    private String licensePlate;
     @ManyToOne
-
     @JoinColumn(name = "trip_id")
+    @JsonIgnore
     private Trip trip;
 
 }

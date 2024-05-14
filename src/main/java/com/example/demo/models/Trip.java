@@ -1,6 +1,7 @@
 package com.example.demo.models;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -29,6 +30,10 @@ public class Trip {
     private String destination;
     private String driver;
     @OneToMany(mappedBy = "trip", cascade = CascadeType.ALL)
+    @JsonIgnore
     private List<BookingOffice> bookingOffices;
+    @OneToMany(mappedBy = "trip", cascade = CascadeType.ALL)
+    @JsonIgnore
+    private List<Ticket> ticket;
 
 }
